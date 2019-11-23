@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/App.css';
+import Board from "./Board";
 
 export default class App extends Component {
 	constructor(props){
@@ -14,6 +15,7 @@ export default class App extends Component {
 					<label>Enter the grid size:
 						<input type="number" defaultValue={3} onChange={ event => this.setState({gridSize: event.target.value})}/>
 					</label>
+					<Board gridSize={this.state.gridSize}/>
 				</div>
 		);
 	}
