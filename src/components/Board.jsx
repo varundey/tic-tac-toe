@@ -7,7 +7,13 @@ export default class Board extends Component {
 		this.state = {
 			playerOneTurn: true,
 			grids: Array(gridSize).fill(1).map(_ => Array(gridSize).fill(2))
-		}
+		};
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(event) {
+		const [row ,column] = event.target.id.split("-");
+
 	}
 
 	render() {
@@ -17,12 +23,25 @@ export default class Board extends Component {
 				<div>
 					{grids.map((row, rowIndex) => (
 							row.map((column, columnIndex) => (
-									<div key={columnIndex}>
-										{column}
-									</div>
+									<Square row={rowIndex} column={column} key={columnIndex} handleClick={this.handleClick}/>
 							))
 					))}
 				</div>
 		)
+	}
+}
+
+export class Square extends Component {
+	render() {
+		const {
+			row,
+			column,
+			handleClick
+		} = this.props;
+		return (
+				<button id={row+"-"+column} className="square" onClick={(row, column) => handleClick(row, column)}>
+					{row} {column}
+				</button>
+		);
 	}
 }
