@@ -36,12 +36,15 @@ export default class Board extends Component {
 	render() {
 		const {grids} = this.state;
 		return(
-			<div>
+			<div className="board">
 				{grids.map((row, rowIndex) => (
-					row.map((column, columnIndex) => (
-						<Square row={rowIndex} column={columnIndex} key={rowIndex+"-"+columnIndex} handleClick={this.handleClick}/>
-					))
-				))}
+					<div key={rowIndex} className="row">
+						{
+							row.map((column, columnIndex) => <Square row={rowIndex} column={columnIndex} key={columnIndex} handleClick={this.handleClick}/>)
+						}
+						</div>
+				)
+				)}
 			</div>
 		)
 	}
