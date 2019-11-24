@@ -13,9 +13,9 @@ export default class App extends Component {
 		return (
 				<div>
 					<label>Enter the grid size:
-						<input type="number" defaultValue={3} onChange={ event => this.setState({gridSize: event.target.value})}/>
+						<input type="number" defaultValue={3} onChange={ event => this.setState({gridSize: Number(event.target.value)})}/>
 					</label>
-					<Board gridSize={this.state.gridSize}/>
+					<Board gridSize={this.state.gridSize} key={this.state.gridSize}/>
 				</div>
 		);
 	}
