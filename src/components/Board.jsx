@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 
+import Square from "./Square";
+
 export default class Board extends Component {
 	constructor(props) {
 		super(props);
@@ -19,8 +21,9 @@ export default class Board extends Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick(event) {
-		const [row ,column] = event.target.id.split("-");
+	handleClick(row ,column) {
+		// debugger;
+		// const [row ,column] = event.target.id.split("-");
 		const {grids, playerOneTurn} = this.state;
 
 		const gridsCopy = grids;
@@ -30,37 +33,23 @@ export default class Board extends Component {
 		this.setState({
 			grids: gridsCopy
 		});
-		this.setState({playerOneTurn: !this.state.playerOneTurn})
+		this.setState({playerOneTurn: !playerOneTurn})
 	}
 
 	render() {
-		const {grids} = this.state;
+		const {grids, playerOneTurn} = this.state;
 		return(
 			<div className="board">
 				{grids.map((row, rowIndex) => (
 					<div key={rowIndex} className="row">
-						{
-							row.map((column, columnIndex) => <Square row={rowIndex} column={columnIndex} key={columnIndex} handleClick={this.handleClick}/>)
-						}
-						</div>
-				)
-				)}
+						{row.map((column, columnIndex) =>
+							<Square row={rowIndex} column={columnIndex} key={rowIndex+"-"+columnIndex}
+											handleClick={this.handleClick} token={playerOneTurn ? "X" : "O"}
+							/>
+						)}
+					</div>
+				))}
 			</div>
 		)
-	}
-}
-
-export class Square extends Component {
-	render() {
-		const {
-			row,
-			column,
-			handleClick
-		} = this.props;
-		return (
-				<button id={row+"-"+column} className="square" onClick={(row, column) => handleClick(row, column)}>
-					{row} {column}
-				</button>
-		);
 	}
 }

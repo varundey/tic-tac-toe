@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
 .square {
     border: solid;
     height: 50px;
