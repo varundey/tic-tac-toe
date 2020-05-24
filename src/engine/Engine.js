@@ -3,20 +3,26 @@ export default class Engine {
     this.boardSize = size;
     this.winner = null;
     this.playerEnum = {
-      P1: {
-        NAME: "player1",
+      PLAYER1: {
+        NAME: "PLAYER1",
         MATRIX: this.createMatrix(),
       },
-      P2: {
-        NAME: "player2",
+      PLAYER2: {
+        NAME: "PLAYER2",
         MATRIX: this.createMatrix(),
       },
     };
   }
 
   createMatrix = () => {
-    const createArrays = Array(this.boardSize).fill(null);
-    const matrix = createArrays.map(() => createArrays);
+    const matrix = Array(this.boardSize)
+      .fill(null)
+      .map(() => Array(this.boardSize).fill(0));
     return matrix;
+  };
+
+  updateMatrix = (player, position) => {
+    const { x, y } = position;
+    this.playerEnum[player].MATRIX[x][y] = 1;
   };
 }

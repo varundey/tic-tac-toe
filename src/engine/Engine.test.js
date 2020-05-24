@@ -6,20 +6,20 @@ describe("Engine", () => {
     expect(engine.boardSize).toEqual(3);
     expect(engine.winner).toBeNull();
     expect(engine.playerEnum).toEqual({
-      P1: {
-        NAME: "player1",
+      PLAYER1: {
+        NAME: "PLAYER1",
         MATRIX: [
-          [null, null, null],
-          [null, null, null],
-          [null, null, null],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
         ],
       },
-      P2: {
-        NAME: "player2",
+      PLAYER2: {
+        NAME: "PLAYER2",
         MATRIX: [
-          [null, null, null],
-          [null, null, null],
-          [null, null, null],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
         ],
       },
     });
@@ -28,9 +28,25 @@ describe("Engine", () => {
   it("should return createMatrix with empty array", () => {
     const engine = new Engine(3);
     expect(engine.createMatrix()).toEqual([
-      [null, null, null],
-      [null, null, null],
-      [null, null, null],
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ]);
+  });
+
+  it("should updateMatrix for the given player", () => {
+    const engine = new Engine(3);
+    expect(engine.playerEnum.PLAYER1.MATRIX).toEqual([
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ]);
+    const player1 = engine.playerEnum["PLAYER1"].NAME;
+    engine.updateMatrix(player1, { x: 0, y: 1 });
+    expect(engine.playerEnum.PLAYER1.MATRIX).toEqual([
+      [0, 1, 0],
+      [0, 0, 0],
+      [0, 0, 0],
     ]);
   });
 });
