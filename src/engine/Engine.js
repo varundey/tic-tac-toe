@@ -15,6 +15,8 @@ export default class Engine {
   }
 
   createMatrix = () => {
-    return [];
+    const createArrays = Array(this.boardSize).fill(null);
+    const matrix = createArrays.map(() => createArrays);
+    return matrix;
   };
 }
