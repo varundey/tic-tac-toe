@@ -49,4 +49,15 @@ describe("Engine", () => {
       [0, 0, 0],
     ]);
   });
+
+  it("should return true if matrix is true vertically", () => {
+    const engine = new Engine(3);
+    const playerOneName = engine.playerEnum.PLAYER1.NAME;
+    const playerOneMatrix = engine.playerEnum.PLAYER1.MATRIX;
+    engine.updateMatrix(playerOneName, { x: 1, y: 1 });
+    engine.updateMatrix(playerOneName, { x: 1, y: 0 });
+    engine.updateMatrix(playerOneName, { x: 2, y: 0 });
+    // expect(engine.isMatrixRowTrueVertically(playerOneMatrix)).toBeTruthy();
+    engine.isMatrixRowTrueVertically(playerOneMatrix);
+  });
 });

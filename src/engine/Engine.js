@@ -25,4 +25,13 @@ export default class Engine {
     const { x, y } = position;
     this.playerEnum[player].MATRIX[x][y] = 1;
   };
+
+  isMatrixRowTrueVertically = (matrix) => {
+    console.log(matrix);
+    matrix.some((row, rowIndex) => row.every(() => row[rowIndex] === 1));
+  };
+
+  isMatrixRowTrueHorizontally = (matrix) => {};
+
+  isMatrixRowTrueDiagonally = (matrix) => {};
 }
