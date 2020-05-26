@@ -65,41 +65,41 @@ describe("Engine", () => {
 describe("isMatrixRowTrueHorizontally", () => {
   it("should return false if any horizontal row has two 0s", () => {
     const engine = new Engine(3);
-    const matrix = (engine.playerEnum.PLAYER1.MATRIX = [
+    const matrix = [
       [1, 0, 0],
       [0, 1, 0],
       [0, 0, 1],
-    ]);
+    ];
     expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeFalsy();
   });
 
   it("should return false if any horizontal row has one 0", () => {
     const engine = new Engine(3);
-    const matrix = (engine.playerEnum.PLAYER1.MATRIX = [
+    const matrix = [
       [1, 1, 0],
       [1, 0, 1],
       [0, 1, 1],
-    ]);
+    ];
     expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeFalsy();
   });
 
   it("should return false if only vertical row has all 1s", () => {
     const engine = new Engine(3);
-    const matrix = (engine.playerEnum.PLAYER1.MATRIX = [
+    const matrix = [
       [1, 1, 0],
       [1, 0, 1],
       [1, 1, 0],
-    ]);
+    ];
     expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeFalsy();
   });
 
   it("should return true if any horizontal row has all 1s", () => {
     const engine = new Engine(3);
-    const matrix = (engine.playerEnum.PLAYER1.MATRIX = [
-      [1, 1, 1],
+    const matrix = [
       [1, 0, 1],
       [0, 1, 1],
-    ]);
+      [1, 1, 1],
+    ];
     expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeTruthy();
   });
 });
