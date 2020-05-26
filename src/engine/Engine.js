@@ -31,7 +31,8 @@ export default class Engine {
     matrix.some((row, rowIndex) => row.every(() => row[rowIndex] === 1));
   };
 
-  isMatrixRowTrueHorizontally = (matrix) => {};
+  isMatrixRowTrueHorizontally = (matrix) =>
+    matrix.some((row) => row.every((value) => value));
 
   isMatrixRowTrueDiagonally = (matrix) => {};
 }
