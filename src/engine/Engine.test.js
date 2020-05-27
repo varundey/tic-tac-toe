@@ -49,16 +49,47 @@ describe("Engine", () => {
       [0, 0, 0],
     ]);
   });
+});
 
-  it("should return true if matrix is true vertically", () => {
+describe("isWinnerFoundVertically", () => {
+  it("should return false if vertical row has two 0s", () => {
     const engine = new Engine(3);
-    const playerOneName = engine.playerEnum.PLAYER1.NAME;
-    const playerOneMatrix = engine.playerEnum.PLAYER1.MATRIX;
-    engine.updateMatrix(playerOneName, { x: 1, y: 1 });
-    engine.updateMatrix(playerOneName, { x: 1, y: 0 });
-    engine.updateMatrix(playerOneName, { x: 2, y: 0 });
-    // expect(engine.isMatrixRowTrueVertically(playerOneMatrix)).toBeTruthy();
-    engine.isMatrixRowTrueVertically(playerOneMatrix);
+    const matrix = [
+      [1, 0, 0],
+      [1, 1, 0],
+      [0, 0, 1],
+    ];
+    expect(engine.isWinnerFoundVertically(matrix)).toBeFalsy();
+  });
+
+  it("should return false if vertical row has one 0", () => {
+    const engine = new Engine(3);
+    const matrix = [
+      [1, 1, 0],
+      [1, 0, 1],
+      [0, 1, 1],
+    ];
+    expect(engine.isWinnerFoundVertically(matrix)).toBeFalsy();
+  });
+
+  it("should return false if horizontal row has all 1s", () => {
+    const engine = new Engine(3);
+    const matrix = [
+      [1, 0, 1],
+      [0, 1, 0],
+      [1, 1, 1],
+    ];
+    expect(engine.isWinnerFoundVertically(matrix)).toBeFalsy();
+  });
+
+  it("should return true if vertical row has all 1s", () => {
+    const engine = new Engine(3);
+    const matrix = [
+      [0, 1, 1],
+      [1, 0, 1],
+      [0, 1, 1],
+    ];
+    expect(engine.isWinnerFoundVertically(matrix)).toBeTruthy();
   });
 });
 

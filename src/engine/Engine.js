@@ -26,9 +26,17 @@ export default class Engine {
     this.playerEnum[player].MATRIX[x][y] = 1;
   };
 
-  isMatrixRowTrueVertically = (matrix) => {
-    console.log(matrix);
-    matrix.some((row, rowIndex) => row.every(() => row[rowIndex] === 1));
+  isWinnerFoundVertically = (matrix) => {
+    let occurencesOfOne = 0;
+    for (let row = 0; row < this.boardSize; row += 1) {
+      for (let column = 0; column < this.boardSize; column += 1) {
+        if (matrix[column][row] === 0) break;
+        occurencesOfOne += 1;
+      }
+      if (occurencesOfOne === this.boardSize) return true;
+      occurencesOfOne = 0;
+    }
+    return false;
   };
 
   isMatrixRowTrueHorizontally = (matrix) =>
