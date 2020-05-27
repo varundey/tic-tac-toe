@@ -39,7 +39,7 @@ export default class Engine {
     return false;
   };
 
-  isMatrixRowTrueHorizontally = (matrix) =>
+  isWinnerFoundHorizontally = (matrix) =>
     matrix.some((row) => row.every((value) => value));
 
   isMatrixRowTrueDiagonally = (matrix) => {};

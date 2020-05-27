@@ -93,7 +93,7 @@ describe("isWinnerFoundVertically", () => {
   });
 });
 
-describe("isMatrixRowTrueHorizontally", () => {
+describe("isWinnerFoundHorizontally", () => {
   it("should return false if any horizontal row has two 0s", () => {
     const engine = new Engine(3);
     const matrix = [
@@ -101,7 +101,7 @@ describe("isMatrixRowTrueHorizontally", () => {
       [0, 1, 0],
       [0, 0, 1],
     ];
-    expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeFalsy();
+    expect(engine.isWinnerFoundHorizontally(matrix)).toBeFalsy();
   });
 
   it("should return false if any horizontal row has one 0", () => {
@@ -111,7 +111,7 @@ describe("isMatrixRowTrueHorizontally", () => {
       [1, 0, 1],
       [0, 1, 1],
     ];
-    expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeFalsy();
+    expect(engine.isWinnerFoundHorizontally(matrix)).toBeFalsy();
   });
 
   it("should return false if only vertical row has all 1s", () => {
@@ -121,7 +121,7 @@ describe("isMatrixRowTrueHorizontally", () => {
       [1, 0, 1],
       [1, 1, 0],
     ];
-    expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeFalsy();
+    expect(engine.isWinnerFoundHorizontally(matrix)).toBeFalsy();
   });
 
   it("should return true if any horizontal row has all 1s", () => {
@@ -131,6 +131,6 @@ describe("isMatrixRowTrueHorizontally", () => {
       [0, 1, 1],
       [1, 1, 1],
     ];
-    expect(engine.isMatrixRowTrueHorizontally(matrix)).toBeTruthy();
+    expect(engine.isWinnerFoundHorizontally(matrix)).toBeTruthy();
   });
 });
