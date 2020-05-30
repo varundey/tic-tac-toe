@@ -136,12 +136,22 @@ describe("isWinnerFoundHorizontally", () => {
 });
 
 describe("isWinnerFoundDiagonally", () => {
-  it("should return true if diagonals are 1 from top left", () => {
+  it("should return true if diagonals are 1 from top left to bottom right", () => {
     const engine = new Engine(3);
     const matrix = [
       [1, 0, 0],
       [0, 1, 0],
       [0, 0, 1],
+    ];
+    expect(engine.isWinnerFoundDiagonally(matrix)).toBeTruthy();
+  });
+
+  it("should return true if diagonals are 1 from top right to bottom left", () => {
+    const engine = new Engine(3);
+    const matrix = [
+      [1, 0, 1],
+      [0, 1, 0],
+      [1, 0, 0],
     ];
     expect(engine.isWinnerFoundDiagonally(matrix)).toBeTruthy();
   });

@@ -53,7 +53,15 @@ export default class Engine {
       return occurrencesOfOne === this.boardSize;
     };
 
-    const checkTopRightToBottomLeft = () => {};
+    const checkTopRightToBottomLeft = () => {
+      let occurrencesOfOne = 0;
+      for (const index in matrix) {
+        if (matrix[index][this.boardSize - index - 1] === 1) {
+          occurrencesOfOne += 1;
+        }
+      }
+      return occurrencesOfOne === this.boardSize;
+    };
 
     return checkTopLeftToBottomRight() || checkTopRightToBottomLeft();
   };
