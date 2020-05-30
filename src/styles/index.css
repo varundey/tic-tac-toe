@@ -13,12 +13,12 @@ code {
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .square {
-    border: solid;
-    height: 50px;
-    width: 50px;
+  border: solid;
+  height: 50px;
+  width: 50px;
 }
