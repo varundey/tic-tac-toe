@@ -43,12 +43,18 @@ export default class Engine {
     matrix.some((row) => row.every((value) => value));
 
   isWinnerFoundDiagonally = (matrix) => {
-    let occurencesOfOne = 0;
-    for (const index in matrix) {
-      if (matrix[index][index] === 1) {
-        occurencesOfOne += 1;
+    const checkTopLeftToBottomRight = () => {
+      let occurrencesOfOne = 0;
+      for (const index in matrix) {
+        if (matrix[index][index] === 1) {
+          occurrencesOfOne += 1;
+        }
       }
-    }
-    return occurencesOfOne === this.boardSize;
+      return occurrencesOfOne === this.boardSize;
+    };
+
+    const checkTopRightToBottomLeft = () => {};
+
+    return checkTopLeftToBottomRight() || checkTopRightToBottomLeft();
   };
 }
