@@ -42,7 +42,7 @@ export default class Engine {
   isWinnerFoundHorizontally = (matrix) =>
     matrix.some((row) => row.every((value) => value));
 
-  isMatrixRowTrueDiagonally = (matrix) => {
+  isWinnerFoundDiagonally = (matrix) => {
     let occurencesOfOne = 0;
     for (const index in matrix) {
       if (matrix[index][index] === 1) {

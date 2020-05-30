@@ -135,14 +135,14 @@ describe("isWinnerFoundHorizontally", () => {
   });
 });
 
-describe("isMatrixRowTrueDiagonally", () => {
-  it("should return true if diagonals are 1", () => {
+describe("isWinnerFoundDiagonally", () => {
+  it("should return true if diagonals are 1 from top left", () => {
     const engine = new Engine(3);
     const matrix = [
       [1, 0, 0],
       [0, 1, 0],
       [0, 0, 1],
     ];
-    expect(engine.isMatrixRowTrueDiagonally(matrix)).toBeTruthy();
+    expect(engine.isWinnerFoundDiagonally(matrix)).toBeTruthy();
   });
 });
